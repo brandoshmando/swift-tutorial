@@ -13,18 +13,18 @@ class TipCalculator {
         return subtotal * tipPct
     }
     
-    func printPossibleTips() {
+    func returnPossibleTips() {
         let possibleTipPcts = [0.15, 0.18, 0.20]
-        
+        var retval = Dictionary<Int,Double>()
         for i in 0..<possibleTipPcts.count {
-            let tipOption = possibleTipPcts[i]
-            println("\(tipOption*100)%: \(calcTipWithTipPct(tipOption))")
+            let tipOption = Int(possibleTipPcts[i])
+            retval[tipOption] = calcTipWithTipPct(possibleTipPcts[i])
         }
     }
 }
 
 let tipCalc = TipCalculator(total:33.25, taxPct: 0.06)
-tipCalc.printPossibleTips()
+tipCalc.returnPossibleTips()
 
 
 
